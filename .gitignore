@@ -1,0 +1,14 @@
+# .NET Core
+*.obj
+*.exe
+*.dll
+*.pdb
+*.user
+*.dll
+*.log
+*.sqlite
+
+# Visual Studio Code
+.vscode/
+.vscode/
+obj/
