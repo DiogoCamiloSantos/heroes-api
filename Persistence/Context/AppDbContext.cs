@@ -18,21 +18,13 @@ namespace HeroesApi.Persistance.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
               modelBuilder.Entity<HeroPower>()
-        .HasKey(hp => new { hp.HeroId, hp.PowerId });
+            .HasKey(hp => new { hp.HeroId, hp.PowerId });
 
-    modelBuilder.Entity<HeroPower>()
-        .HasOne(hp => hp.Hero);
+        modelBuilder.Entity<HeroPower>()
+            .HasOne(hp => hp.Hero)
+            .WithMany(h => h.HeroPowers)
+            .HasForeignKey(hp => hp.HeroId);
 
-    modelBuilder.Entity<HeroPower>()
-        .HasOne(hp => hp.Power)
-        .WithMany(p => p.HeroPowers)
-        .HasForeignKey(hp => hp.PowerId);
-
-    modelBuilder.Entity<Hero>()
-        .HasKey(h => h.Id);
-
-    modelBuilder.Entity<Power>()
-        .HasKey(p => p.Id);
 
     base.OnModelCreating(modelBuilder);
         }

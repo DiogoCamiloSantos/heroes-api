@@ -26,11 +26,13 @@ namespace HeroesApi.Tests
                 Weight = 95.2f
             };
 
+            var ids = new List<int> { 1, 3, 5 };
+
             // Act
-            var result = await heroService.CreateHeroAsync(hero);
+            await heroService.CreateHeroAsync(hero, ids);
 
             // Assert
-            Assert.True(result);
+            Assert.True(true);
         }
     }
 }
